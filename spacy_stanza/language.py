@@ -174,13 +174,14 @@ class Tokenizer(object):
             ent_span = doc.char_span(ent.start_char, ent.end_char, ent.type)
             ents.append(ent_span)
         if not all(ents):
-            warnings.warn(
+            """warnings.warn(
                 f"Can't set named entities because the character offsets don't "
                 f"map to valid tokens produced by the Stanza tokenizer:\n"
                 f"Words: {words}\n"
                 f"Entities: {[(e.text, e.type, e.start_char, e.end_char) for e in snlp_doc.entities]}",
                 stacklevel=4,
-            )
+            )"""
+            pass
         else:
             doc.ents = ents
         # Overwrite lemmas separately to prevent them from being overwritten by spaCy
